@@ -1,16 +1,185 @@
 <template>
   <v-app id="inspire" :style="{background: $vuetify.theme.themes.dark.background}">
     <side-bar />
-    <side-bar-right />
+    <side-bar-right />  
+     <v-container>
+      <v-toolbar color="rgba(0,0,0,0)" flat class="mt-n4">
+        <v-btn-toggle v-model="toggle_exclusive" tile group color="#49D9A0">
+            <v-btn text>
+                <v-icon> fas fa-arrow-left</v-icon>
+            </v-btn>
+            <v-btn text>
+                <v-icon> fas fa-arrow-right</v-icon>
+            </v-btn>
+        </v-btn-toggle>
+        <v-spacer></v-spacer>
+        <v-btn color="#49D9A0" rounded dark>
+                 Finish Sprint
+              </v-btn>
+      </v-toolbar>
+      <v-toolbar color="rgba(0,0,0,0)" flat class="mt-n5">
+          <v-toolbar-title> Sprint Overview</v-toolbar-title>
+          <v-btn color="#49D9A0" text class="ml-5"> Last Sprint</v-btn>
+      </v-toolbar>
+      <v-item-group mandatory class="mt-n4">
+          <v-container>
+              <v-row justify="center" class="space">
+                  <v-col cols="12" md="2">
+                      <v-item v-slot="{active, toggle}">
+                          <v-card :color= " active ? '#40D9A0' : 'white' "
+                            class="d-flex align-center rounded-xl"
+                            dark
+                            height="200"
+                            @click="toggle"
+                          >
+                            <v-row>
+                              <v-col cols="12" sm="12">
+                                <v-list-item three-line class="mt-10">
+                                    <v-list-item-content>
+                                       <div class="mb-4">
+                                          <v-icon x-large :color= "active ? 'white' : '#40D9A0' ">
+                                            fas fa-chart-bar
+                                          </v-icon>
+                                       </div>
+                                         <v-list-item-subtitle :class= "active ? 'white--text' : 'black--text'"> Team Velocity</v-list-item-subtitle>
+                                         <v-list-item-title class="headline mb-1" :class= "active ? 'white--text' : 'black--text'"></v-list-item-title>
+                                          <strong :class= "active ? 'white--text' : 'black--text'">58</strong>
+                                        </v-list-item-content>
+                                </v-list-item>
+
+                              </v-col>
+                            </v-row>
+                          </v-card>
+                      </v-item>
+                  </v-col>
+                    <v-col cols="12" md="2">
+                        <v-item v-slot="{ active, toggle }">
+                            <v-card :color= "active ? '#40D9A0' : 'white'"
+                              class="d-flex align-center rounded-xl"
+                              dark
+                              height="200"
+                              @click="toggle"
+                            >
+                              <v-row>
+                                <v-col cols="12" sm="12">
+                                  <v-list-item three-line class="mt-10">
+                                      <v-list-item-content>
+                                         <div class="mb-4">
+                                            <v-icon x-large :color= "active ? 'white' : '#40D9A0'">
+                                              fas fa-user
+                                            </v-icon>
+                                         </div>
+                                           <v-list-item-subtitle :class= "active ? 'white--text' : 'black--text'"> Team Members</v-list-item-subtitle>
+                                           <v-list-item-title class="headline mb-1" :class= "active ? 'white--text' : 'black--text'"></v-list-item-title>
+                                            <strong :class= "active ? 'white--text' : 'black--text'">32</strong>
+                                          </v-list-item-content>
+                                  </v-list-item>
+
+                                </v-col>
+                              </v-row>
+                            </v-card>
+                        </v-item>
+                    </v-col>
+                      <v-col cols="12" md="2">
+                          <v-item v-slot="{ active, toggle }">
+                              <v-card :color= "active ? '#40D9A0' : 'white'"
+                                class="d-flex align-center rounded-xl"
+                                dark
+                                height="200"
+                                @click="toggle"
+                              >
+                                <v-row>
+                                  <v-col cols="12" sm="12">
+                                    <v-list-item three-line class="mt-10">
+                                        <v-list-item-content>
+                                           <div class="mb-4">
+                                              <v-icon x-large :color= "active ? 'white' : '#40D9A0'">
+                                                fas fa-suitcase
+                                              </v-icon>
+                                           </div>
+                                             <v-list-item-subtitle :class= "active ? 'white--text' : 'black--text'"> Tasks Delivered</v-list-item-subtitle>
+                                             <v-list-item-title class="headline mb-1" :class= "active ? 'white--text' : 'black--text'"></v-list-item-title>
+                                              <strong :class= "active ? 'white--text' : 'black--text'">19</strong>
+                                            </v-list-item-content>
+                                    </v-list-item>
+
+                                  </v-col>
+                                </v-row>
+                              </v-card>
+                          </v-item>
+                      </v-col>
+                        <v-col cols="12" md="2">
+                          <v-item v-slot="{ active, toggle }">
+                              <v-card :color= "active ? '#40D9A0' : 'white'"
+                                class="d-flex align-center rounded-xl"
+                                dark
+                                height="200"
+                                @click="toggle"
+                              >
+                                <v-row>
+                                  <v-col cols="12" sm="12">
+                                    <v-list-item three-line class="mt-10">
+                                        <v-list-item-content>
+                                           <div class="mb-4">
+                                              <v-icon x-large :color= "active ? 'white' : '#40D9A0'">
+                                                fas fa-search
+                                              </v-icon>
+                                           </div>
+                                             <v-list-item-subtitle :class= "active ? 'white--text' : 'black--text'"> Spikes Delivered</v-list-item-subtitle>
+                                             <v-list-item-title class="headline mb-1" :class= "active ? 'white--text' : 'black--text'"></v-list-item-title>
+                                              <strong :class= "active ? 'white--text' : 'black--text'">87</strong>
+                                            </v-list-item-content>
+                                    </v-list-item>
+
+                                  </v-col>
+                                </v-row>
+                              </v-card>
+                          </v-item>
+                      </v-col>
+                        <v-col cols="12" md="2">
+                          <v-item v-slot="{ active, toggle }">
+                              <v-card :color= "active ? '#40D9A0' : 'white'"
+                                class="d-flex align-center rounded-xl"
+                                dark
+                                height="200"
+                                @click="toggle"
+                              >
+                                <v-row>
+                                  <v-col cols="12" sm="12">
+                                    <v-list-item three-line class="mt-10">
+                                        <v-list-item-content>
+                                           <div class="mb-4">
+                                              <v-icon x-large :color= "active ? 'white' : '#40D9A0'">
+                                                fas fa-globe-africa
+                                              </v-icon>
+                                           </div>
+                                             <v-list-item-subtitle :class= "active ? 'white--text' : 'black--text'"> News Event</v-list-item-subtitle>
+                                             <v-list-item-title class="headline mb-1" :class= "active ? 'white--text' : 'black--text'"></v-list-item-title>
+                                              <strong :class= "active ? 'white--text' : 'black--text'">102</strong>
+                                            </v-list-item-content>
+                                    </v-list-item>
+
+                                  </v-col>
+                                </v-row>
+                              </v-card>
+                          </v-item>
+                      </v-col>
+              </v-row>
+              
+          </v-container>
+          
+      </v-item-group>
+    </v-container>
+
   </v-app>
 </template>
 
 <script>
 import SideBar from '@/components/SideBar.vue'
 import SideBarRight from '@/components/SideBarRight.vue'
-import { use } from 'echarts';
-import {CanvasRenderer} from "echarts/renderers";
-import {PieChart} from "echarts/core";
+import { use } from 'echarts/core';
+//import {CanvasRenderer} from "charts/renderers";
+import {PieChart} from "echarts/charts";
 import {
   TitleComponent,
   TooltipComponent,
@@ -20,7 +189,7 @@ import {
 
 use([
    PieChart,
-  CanvasRenderer,
+ // CanvasRenderer,
   TitleComponent,
   TooltipComponent,
   LegendComponent,
