@@ -1,4 +1,6 @@
-# sprint
+# sprint dashboard screen shoot
+![image](https://user-images.githubusercontent.com/52404803/228286927-ee68dd46-360d-4337-a026-34c5dce2341f.png)
+
 
 ## Project setup
 ```
