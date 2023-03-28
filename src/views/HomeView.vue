@@ -164,13 +164,112 @@
                               </v-card>
                           </v-item>
                       </v-col>
-              </v-row>
-              
-          </v-container>
-          
+              </v-row>              
+          </v-container>          
       </v-item-group>
+      <v-row class="mt-n6">
+          <v-col cols="12" sm="7">
+              <v-chart class="chart mt-2" :option="option"/>
+          </v-col>
+          <v-col cols="12" md="5" sm="12">
+              <v-toolbar color="rgba(0,0,0,0)" flat class="mt-n2">
+                  <v-toolbar-title>Sprint Stories</v-toolbar-title>
+                  <v-spacer></v-spacer>
+                  <v-btn rounded small> See All</v-btn>
+              </v-toolbar>
+              <v-simple-table class="grey ligthen-3">
+                  <template v-slot:default>
+                    <tbody> 
+                      <tr v-for="item in orders" :key="item.name">
+                        <td>{{ item.id }}</td>
+                        <td>{{ item.title }}</td>
+                        <td>{{ item.state }}</td>
+                        <td>{{ item.count }}</td>
+                        <td> <v-icon small> {{ item.icon }} </v-icon></td>
+                      </tr>
+                    </tbody>
+                  </template>
+              </v-simple-table>
+          </v-col>
+      </v-row>
+      <v-toolbar color="rgba(0,0,0,0)" flat class="mt-n8">
+          <v-toolbar-title> Team Members</v-toolbar-title>
+          <v-spacer></v-spacer>
+          <v-btn rounded small> Add Member</v-btn>          
+      </v-toolbar>
+      <v-card class="rounded-lg">
+        <v-row>
+            <v-col cols="12" sm="3">
+                <v-list subheader two-line>
+                    <v-list-item>
+                        <v-badge bordered bottom color="#49D9A0" dot offset-x="28" offset-y="22">
+                            <v-list-item-avatar>
+                                <v-avatar size="40">
+                                    <v-img src="https://avatars.githubusercontent.com/u/52404803?v=4"></v-img>
+                                </v-avatar>
+                            </v-list-item-avatar>
+                        </v-badge>
+                        <v-list-item-content>
+                          <v-list-item-title>gemtunde</v-list-item-title>
+                          <v-list-item-subtitle>Frontend Engr</v-list-item-subtitle>
+                        </v-list-item-content>
+                    </v-list-item>
+                </v-list>
+            </v-col>
+            <v-col cols="12" sm="3">
+                <v-list subheader two-line>
+                    <v-list-item>
+                        <v-badge bordered bottom color="#49D9A0" dot offset-x="28" offset-y="22">
+                            <v-list-item-avatar>
+                                <v-avatar size="40">
+                                    <v-img src="https://avatars.githubusercontent.com/u/52404803?v=4"></v-img>
+                                </v-avatar>
+                            </v-list-item-avatar>
+                        </v-badge>
+                        <v-list-item-content>
+                          <v-list-item-title>gemtunde</v-list-item-title>
+                          <v-list-item-subtitle>Frontend Engr</v-list-item-subtitle>
+                        </v-list-item-content>
+                    </v-list-item>
+                </v-list>
+            </v-col>
+            <v-col cols="12" sm="3">
+                <v-list subheader two-line>
+                    <v-list-item>
+                        <v-badge bordered bottom color="#49D9A0" dot offset-x="28" offset-y="22">
+                            <v-list-item-avatar>
+                                <v-avatar size="40">
+                                    <v-img src="https://avatars.githubusercontent.com/u/52404803?v=4"></v-img>
+                                </v-avatar>
+                            </v-list-item-avatar>
+                        </v-badge>
+                        <v-list-item-content>
+                          <v-list-item-title>gemtunde</v-list-item-title>
+                          <v-list-item-subtitle>Frontend Engr</v-list-item-subtitle>
+                        </v-list-item-content>
+                    </v-list-item>
+                </v-list>
+            </v-col>
+            <v-col cols="12" sm="3">
+                <v-list subheader two-line>
+                    <v-list-item>
+                        <v-badge bordered bottom color="#49D9A0" dot offset-x="28" offset-y="22">
+                            <v-list-item-avatar>
+                                <v-avatar size="40">
+                                    <v-img src="https://avatars.githubusercontent.com/u/52404803?v=4"></v-img>
+                                </v-avatar>
+                            </v-list-item-avatar>
+                        </v-badge>
+                        <v-list-item-content>
+                          <v-list-item-title>gemtunde</v-list-item-title>
+                          <v-list-item-subtitle>Frontend Engr</v-list-item-subtitle>
+                        </v-list-item-content>
+                    </v-list-item>
+                </v-list>
+            </v-col>
+        </v-row>
+      </v-card>
     </v-container>
-
   </v-app>
 </template>
 
@@ -185,7 +284,7 @@ import {
   TooltipComponent,
   LegendComponent,
 } from "echarts/components";
-//import VChart, {THEME_KEY} from "vue-echarts"
+import VChart, {THEME_KEY} from "vue-echarts"
 
 use([
    PieChart,
@@ -267,10 +366,10 @@ use([
     components: {
         SideBar,
         SideBarRight,
-       // VChart,
+        VChart,
     },
     provide : {
-     // [THEME_KEY] : "green"
+      [THEME_KEY] : "green"
     }
   }
 </script>
